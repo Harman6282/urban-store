@@ -1,5 +1,5 @@
-const page = () => {
+const HomePage = () => {
   return <div>Urban store</div>;
 };
 
-export default page;
+export default HomePage;
