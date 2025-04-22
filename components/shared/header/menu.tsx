@@ -13,6 +13,7 @@ import ModeToggle from "./mode-toggle";
 const Menu = () => {
   return (
     <div className="flex jusitfy-end gap-3">
+      {/*  this is for large screens */}
       <nav className="hidden md:flex w-full max-w-xs gap-1">
         <Button asChild variant={"ghost"}>
           <Link href={"/cart"}>
@@ -26,6 +27,7 @@ const Menu = () => {
         </Button>
       </nav>
 
+      {/* this navbar is for mobile screens */}
       <nav className="md:hidden">
         <Sheet>
           <SheetTrigger className="align-middle">
