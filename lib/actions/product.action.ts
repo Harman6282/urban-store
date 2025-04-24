@@ -14,7 +14,12 @@ export async function getLatestProducts() {
     orderBy: { createdAt: "desc" },
   });
 
-  return  convertToPlainObject(data);
+  const formatted = data.map(product => ({
+    ...product,
+    rating: Number(product.rating),
+  }));
+
+  return convertToPlainObject(formatted);
 }
 
 
