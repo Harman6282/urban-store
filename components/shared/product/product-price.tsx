@@ -12,7 +12,7 @@ const ProductPrice = ({
   }
   const stringValue = value.toFixed(2);
 
-  const [intValue, floatValue] = stringValue.split(".");
+  const [floatValue] = stringValue.split(".");
 
   return (
     <p className={cn("text-lg", className)}>
