@@ -43,7 +43,6 @@ export const signUpFormSchema = z
     path: ["confirmPassword"],
   });
 
-
 // cart schema
 export const cartItemSchema = z.object({
   productId: z.string().min(1, "Product ID is required"),
@@ -51,9 +50,8 @@ export const cartItemSchema = z.object({
   slug: z.string().min(1, "Product slug is required"),
   qty: z.number().int().nonnegative("Quantity must be a positive integer"),
   image: z.string().min(1, "Product image is required"),
-  price: currency
-})
-
+  price: currency,
+});
 
 export const insertCartSchema = z.object({
   items: z.array(cartItemSchema),
@@ -63,4 +61,15 @@ export const insertCartSchema = z.object({
   taxPrice: currency,
   sessionCartId: z.string().min(1, "Session cart ID is required"),
   userId: z.string().optional(),
-})
+});
+
+// schema for the shipping address
+export const shippingAddressSchema = z.object({
+  fullName: z.string().min(3, "Name must be at least 3 characters"),
+  streetAddress: z.string().min(3, "Address must be at least 3 characters"),
+  city: z.string().min(3, "City must be at least 3 characters"),
+  postalCode: z.string().min(3, "Postal code must be at least 3 characters"),
+  country: z.string().min(3, "Country must be at least 3 characters"),
+  lat: z.number().optional(),
+  Ing: z.number().optional(),
+});
