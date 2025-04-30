@@ -1,8 +1,11 @@
 import { auth } from "@/auth";
 import { getMyCart } from "@/lib/actions/cart.action";
-// import { getUserById } from "@/lib/actions/users.action";
+import { getUserById } from "@/lib/actions/users.action";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
+import ShippingAddressForm from "./shipping-address-form";
+import { ShippingAddress } from "@/types";
+import CheckoutSteps from "@/components/shared/checkout-steps";
 
 export const metadata: Metadata = {
   title: "Shipping Address",
@@ -19,9 +22,12 @@ const ShippingAddressPage = async () => {
 
   if (!userId) throw new Error("No user ID");
 
-//   const user = await getUserById(userId);
+  const user = await getUserById(userId);
 
-  return <div></div>;
+  return <div>
+    <CheckoutSteps current={1} />
+    <ShippingAddressForm address={user.address as ShippingAddress} />
+  </div>;
 };
 
 export default ShippingAddressPage;
