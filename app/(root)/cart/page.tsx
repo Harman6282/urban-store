@@ -10,7 +10,11 @@ const CartPage = async () => {
 
   return (
     <>
-      <CartTable cart={cart} />
+      <CartTable cart={cart ? {
+        ...cart,
+        sessionCartId: cart.sessionCartId || '',
+        userId: cart.userId || undefined
+      } : undefined} />
     </>
   );
 };
